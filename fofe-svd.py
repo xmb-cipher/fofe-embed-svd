@@ -153,6 +153,6 @@ if __name__ == '__main__':
     logger.info('fofe matrix after ppmi has %d non-zero elements' % fofe.nnz)
     numpy.save('%s-ppmi' % args.outbase, fofe)
 
-    svd = TruncatedSVD(n_components=args.embed_dim, n_iter=16)
+    svd = TruncatedSVD(n_components=args.embed_dim, n_iter=args.n_iter)
     embed = svd.fit_transform(fofe)
     numpy.save('%s-embed' % args.outbase, embed)
